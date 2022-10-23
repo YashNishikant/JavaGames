@@ -4,7 +4,7 @@ import java.awt.*;
 import javax.swing.*; 
 public class panelSetup extends JFrame { 
   
-    // constuctor 
+    // Constructor 
 	panelSetup() 
     { 
         super("panelSetup"); 

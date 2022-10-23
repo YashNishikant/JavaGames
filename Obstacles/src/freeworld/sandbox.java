@@ -46,12 +46,12 @@ public class sandbox extends engine implements ActionListener, KeyListener, Mous
 	double windowSizeY = frame.getHeight();
 
 	int mapX = 40;
-	int mapY = 100;
+	int mapY = 10;
 	int dirtHeight = 20;
 	int airHeight = 0;
 	int terrainStartLvl = 10;
 	double camSpeedDevMode = 0;
-	boolean devMode = true;
+	boolean devMode = false;
 	int randomOre = 0;
 	
 	mouseClicker click = new mouseClicker();

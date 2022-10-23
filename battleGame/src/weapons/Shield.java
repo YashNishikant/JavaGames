@@ -22,6 +22,12 @@ public class Shield extends Textures{
 		height = 80;
 	}
 
+	public void updatePos(double x, double y) {
+		this.x = x;
+		this.y = (int)y;
+
+	}
+	
 	public void draw(Graphics g) {
 		addImage(g, "//Armor//shield.png", x, y);
 	}

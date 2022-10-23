@@ -65,7 +65,7 @@ public class sandbox extends Textures implements ActionListener, MouseMotionList
 	Ground floor = new Ground(0);
 	Airport airport = new Airport((int) (Math.random() * 20000) - 10000);
 	Airport airport2 = new Airport((int) (Math.random() * 160000) + 80000);
-	BattleBoss destroyer = new BattleBoss(-100000, -1000000);
+	BattleBoss destroyer = new BattleBoss(500, 500);
 	NPC[] player = new NPC[0];
 	armor iron = new armor();
 	car car = new car();
@@ -177,6 +177,9 @@ public class sandbox extends Textures implements ActionListener, MouseMotionList
 	}
 
 	public void actionPerformed(ActionEvent e) {
+		
+		System.out.println(user.death);
+		
 		if(!iron.track)
 			user.gravity(DOWNWARD_FORCE);
 		
@@ -208,6 +211,7 @@ public class sandbox extends Textures implements ActionListener, MouseMotionList
 		miscRandomBugFix();
 		destroyer.move();
 		destroyer.Behavior();
+		shield.updatePos(iron.armorPosX + 50, iron.armorPosY);
 		iron.tracking();
 		appropriateImage();
 		trackSystem();
@@ -910,11 +914,8 @@ public class sandbox extends Textures implements ActionListener, MouseMotionList
 		}
 
 		if (i == KeyEvent.VK_B && gui.shieldHP > 0) {
-			shield.activateShield = true;
+			shield.activateShield = !shield.activateShield;
 			iron.blast = false;
-		}
-		if (i == KeyEvent.VK_Z) {
-			shield.activateShield = false;
 		}
 
 		if (i == KeyEvent.VK_R && !shield.activateShield) {
@@ -977,7 +978,9 @@ public class sandbox extends Textures implements ActionListener, MouseMotionList
 			}
 			user.insideSuit = false;
 		}
+		
 		if (i == KeyEvent.VK_SPACE && !user.nobattery) {
+			
 			if (iron.track == true && iron.confirmgroundfire == false && iron.fireonground == false) {
 
 				user.speedY = -5;
@@ -1158,6 +1161,21 @@ public class sandbox extends Textures implements ActionListener, MouseMotionList
 		iron.turbo = false;
 		iron.turbo_LEFT = false;
 
+		if (i == KeyEvent.VK_S && iron.track) {
+			user.speedY = 0;
+		}
+		if (i == KeyEvent.VK_SPACE && iron.track) {
+			user.speedY = 0;
+		}
+		
+		if (i == KeyEvent.VK_A && iron.track) {
+			movePlayer(0);
+		}
+		
+		if (i == KeyEvent.VK_D && iron.track) {
+			movePlayer(0);
+		}
+
 		if (i == KeyEvent.VK_A && user.holdingWeapon) {
 			user.animateRight = false;
 		}
@@ -1165,11 +1183,13 @@ public class sandbox extends Textures implements ActionListener, MouseMotionList
 		if (i == KeyEvent.VK_Q && iron.ableToTurbo_LEFT) {
 			iron.flyIMG_LEFT = true;
 			power.turboReducePowerMore = false;
+			movePlayer(12);
 		}
 
 		if (i == KeyEvent.VK_T && iron.ableToTurbo) {
 			iron.flyIMG = true;
 			power.turboReducePowerMore = false;
+			movePlayer(-12);
 		}
 		if (i == KeyEvent.VK_D) {
 			iron.flyIMG = false;

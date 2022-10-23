@@ -42,7 +42,7 @@ public class human {
 			jumping = false;
 			
 			if (speedY < 4) {
-				speedY += 0.02;
+				speedY += 0.1;
 			}
 		}
 
@@ -55,7 +55,7 @@ public class human {
 			}
 			personY += speedY;
 			if (speedY < 3) {//terminal vel
-				speedY += 0.02;
+				speedY += 0.1;
 			} else {
 				jump = false;
 				onetimeJump = true;

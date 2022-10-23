@@ -79,7 +79,7 @@ public class human extends Textures {
 				y += speedY;
 			}
 		}
-
+		y += speedY;
 	}
 
 	public void drawHealth(Graphics g, double personX2, double personX3, int x) {

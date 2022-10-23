@@ -28,7 +28,7 @@ public class world {
 				
 			
 			JFrame frame= new JFrame();	
-			frame.getContentPane().add(new worldPanel());
+			frame.getContentPane().add(new panelSetup());
 			frame.setSize(300, 300);
 			frame.setVisible(true);
 			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
