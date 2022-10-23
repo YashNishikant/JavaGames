@@ -37,8 +37,8 @@ public class BallPanel extends JPanel implements ActionListener, KeyListener {
 	boolean replay;
 
 	Dimension wh = getToolkit(). getScreenSize();
-	Dimension screenHeight = screenSize.height;
-	Dimension screenWidth = screenSize.width;
+	Dimension screenHeight = new Dimension(800,800);
+	Dimension screenWidth = new Dimension(800,800);
 	
 	public BallPanel() {
 
