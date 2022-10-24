@@ -178,8 +178,6 @@ public class sandbox extends Textures implements ActionListener, MouseMotionList
 
 	public void actionPerformed(ActionEvent e) {
 		
-		System.out.println(user.death);
-		
 		if(!iron.track)
 			user.gravity(DOWNWARD_FORCE);
 		
@@ -979,7 +977,7 @@ public class sandbox extends Textures implements ActionListener, MouseMotionList
 			user.insideSuit = false;
 		}
 		
-		if (i == KeyEvent.VK_SPACE && !user.nobattery) {
+		if (i == KeyEvent.VK_W && !user.nobattery) {
 			
 			if (iron.track == true && iron.confirmgroundfire == false && iron.fireonground == false) {
 
@@ -1164,7 +1162,7 @@ public class sandbox extends Textures implements ActionListener, MouseMotionList
 		if (i == KeyEvent.VK_S && iron.track) {
 			user.speedY = 0;
 		}
-		if (i == KeyEvent.VK_SPACE && iron.track) {
+		if (i == KeyEvent.VK_W && iron.track) {
 			user.speedY = 0;
 		}
 		
